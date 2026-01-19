@@ -1,0 +1,26 @@
+#api call for listing all employee detials
+###
+GET http://127.0.0.1:8000/detials/
+Accept: application/json
+
+
+#api call for adding detials
+###
+POST http://127.0.0.1:8000/detials/
+Content-Type: application/json
+
+{
+    "name":"akshay",
+
+    "department" : "frontend developer",
+
+    "salary" :50000,
+
+    "location":"Bangalore",
+
+    "age": 28,
+
+    "experience":3
+
+}
+
