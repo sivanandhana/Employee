@@ -13,7 +13,7 @@ class EmployeeCreateListView(View):
          
          qs = Employee.objects.all()
 
-         result =[{id:emp.id,"name":emp.name,"department":emp.department, "salary":emp.salary,"location":emp.location,"age":emp.age,"experience":emp.experience}for emp in qs]
+         result =[{"id":emp.id,"name":emp.name,"department":emp.department, "salary":emp.salary,"location":emp.location,"age":emp.age,"experience":emp.experience}for emp in qs]
 
          return JsonResponse({"data":result,"status":"200 ok"})
     
