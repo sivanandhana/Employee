@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from emp_app.views import EmployeeCreateListView
+from emp_app.views import EmployeeRetrieveUpdateDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("detials/",EmployeeCreateListView.as_view()),
+    path('detials/<int:pk>/',EmployeeRetrieveUpdateDeleteView.as_view())
 ]

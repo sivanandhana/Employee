@@ -10,17 +10,36 @@ POST http://127.0.0.1:8000/detials/
 Content-Type: application/json
 
 {
-    "name":"akshay",
+    "name":"anjana",
 
-    "department" : "frontend developer",
+    "department" : "software tester",
 
-    "salary" :50000,
+    "salary" :30000,
 
-    "location":"Bangalore",
+    "location":"kochi",
 
-    "age": 28,
+    "age": 25,
 
-    "experience":3
+    "experience":2
 
 }
+
+#api call for retrieve on data
+###
+GET http://127.0.0.1:8000/detials/2/
+Accept: application/json
+
+#api call for delete
+###
+DELETE http://127.0.0.1:8000/detials/2/
+
+#api call for update
+###
+PUT http://127.0.0.1:8000/detials/1/
+
+{
+    "department":"quality tester"
+}
+
+
 

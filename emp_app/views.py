@@ -39,4 +39,35 @@ class EmployeeCreateListView(View):
 
          return JsonResponse({"data":"record inserted","status":"200 success"})
     
+@method_decorator(csrf_exempt,name="dispatch")    
+class EmployeeRetrieveUpdateDeleteView(View):
+
+    def get(self,request,*args,**kwargs):
+
+        id = kwargs.get("pk")
+
+        qs = Employee.objects.get(id=id)
+
+        result =[{"id":qs.id,"name":qs.name,"department":qs.department,"salary":qs.salary,"location":qs.location,"age":qs.age,"experience":qs.experience}]
+
+        return JsonResponse({"data":result,"status":"200 ok"})
+    
+    def delete(self,request,*args,**kwargs):
+
+        id = kwargs.get("pk")
+
+        Employee.objects.get(id=id).delete()
+
+        return JsonResponse({"data":"deleted","status":"200 ok"})
+    
+    def put(self,request,*args,**kwargs):
+
+        id= kwargs.get("pk")
+
+        data = loads(request.body)
+
+        Employee.objects.filter(id=id).update(**data)
+
+        return JsonResponse({"data":"updated","status":"200 ok"})
+    
 
